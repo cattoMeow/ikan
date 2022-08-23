@@ -187,3 +187,59 @@ git stash <command>
 git stash list
 git stash apply <commit hash>
 ```
+
+## Commit Convetion
+
+Menggunakan [Git Karma convention](http://karma-runner.github.io)
+
+```
+<type>(<scope>): <subject>
+<BLANK LINE>
+<body>
+<BLANK LINE>
+<footer>
+```
+
+Contoh
+
+```
+fix(middleware): ensure Range headers adhere more closely to RFC 2616
+Add one new dependency, use `range-parser` (Express dependency) to compute range. It is more well-tested in the wild.
+Fixes #2310
+```
+
+### Contoh `<type>` yang diizinkan:
+
+- feat for a new feature for the user, not a new feature for build script. Such commit will trigger a release bumping a MINOR version.
+- fix for a bug fix for the user, not a fix to a build script. Such commit will trigger a release bumping a PATCH version.
+- perf for performance improvements. Such commit will trigger a release bumping a PATCH version.
+- docs for changes to the documentation.
+- style for formatting changes, missing semicolons, etc.
+- refactor for refactoring production code, e.g. renaming a variable.
+- test for adding missing tests, refactoring tests; no production code change.
+- build for updating build configuration, development tools or other changes irrelevant to the user.
+
+#### [Referensi](http://karma-runner.github.io/6.3/dev/git-commit-msg.html)
+
+## Semantic Versioning
+
+```
+v<major>.<minor>.<patch>
+```
+
+Contoh: `v2.0.0`
+
+Patch: fix, perf
+
+Minor: feat
+
+Major: braking changes in the API
+
+## Git Management
+
+- Dengan [Trunk Based Development](https://trunkbaseddevelopment.com/)
+- A source-control branching model, where developers collaborate on code in a single branch called ‘trunk’ (main or master)
+- Avoid long-lived branches
+- Use short-lived branches only for feature development
+- Merge the pull request only if it is already reviewed
+- Each and every commit made to the trunk is considered as a deployable unit
