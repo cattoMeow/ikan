@@ -58,6 +58,14 @@ git remote -v
 git remote add <remote name> <remote url>
 ```
 
-testing
+## 4 Memeriksa status
 
-testing penambahan branch
+Untuk mengecek status git apakah sudah masuk staging atau belum, serta memeriksa file yang tidak terlacak oleh git.
+
+#### Perintah
+
+```
+git status
+```
+
+##
