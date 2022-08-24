@@ -1,59 +1,103 @@
-# Day 3: Tugas PostgreSQL
+# Day 3: PostgreSQL
 
-Untuk tugas hari ini, saya mendapatkan tugas untuk membuat 3 tabel, melakukan operasi, serta melakukan join.
+Pada hari ketiga saya mendapatkan ilmu berupa praktek menggunakan PostgreSQL. PostgreSQL sendiri Merupakan jenis DBMS relasional, serupa dengan MySQL dan Oracle. Database relational sendiri memiliki informasi berupa tabel, baris, dan kolom. Memiliki kemampuan untuk saling berelasi antar tabel dengan melakukan operasi `join`. Dengan ini kita semakin mudah untuk memahami hubungan antar tabel.
 
-## Membuat table
+## DDL (Data Definition Language)
 
-disini kita akan membuat 3 buah tabel: customers, products, dan orders.
+DDL digunakan untuk mendefinisikan struktur seperti skema, database, tabel, constrait, et cetera. Contoh dari statement DDL adalah `create`, `drop`, dan `alter`.
 
-### customers
+### Contoh
 
-```
-create table customers (id int not null primary key, customer_name char(50) not null);
-```
-
-### products
+#### create
 
 ```
-create table products (id int primary key not null, name varchar(50) not null);
+create database database_name;
 ```
 
-### orders
+#### alter
 
 ```
-create table orders (id int PRIMARY KEY NOT NULL, customer_id int not null references customers(id), product_id INT NOT NULL references products(id), order_date date NOT NULL, total float NOT NULL);
+alter table table_name
+    rename to table_name_chane;
 ```
 
-## Operasi
-
-Setelah tabel dibuat, kita bisa melakukan operasi berikut untuk menambah, mengupdate, dan menghapus data yang ada dalam tabel.
-
-### insert
+#### drop
 
 ```
-insert into public.customers (customer_name) values ('Zhang Purnama');
+drop table table_name;
 ```
 
-### update
+## DML (Data Manipulation Language)
+
+DIgunakan untuk memanipulasi data. Contoh statementnya adalah `insert`, `update`, dan `delete`.
+
+### Contoh
+
+#### Insert
 
 ```
-update customers set customer_name = 'Hideo Kojima' where id = 1;
+INSERT INTO public.table_name (name, age)
+VALUE ('cattoMeow', '3');
 ```
 
-### delete
+#### update
 
 ```
-delete from public.customers where id = 3;
+UDPATE public.table_name
+SET age = 4
+WHERE id = 1;
 ```
 
-## Joins
-
-Join merupakan suatu langkah untuk menggabungkan tabel yang ada dengan parameter-parameter yang sesuai kebutuhan
-
-### Join
+#### delete
 
 ```
-select * from public.customers join public.orders on orders.id = customers.id;S
+DELETE
+FROM public.table_name
+WHERE id = 1;
 ```
 
-output yang dihasilkan akan menampilkan hasil gabungan tabel customer serta barang yang dibeli. Sehingga memudahkan pelacakan pembeli serta harga yang harus dibayarkan.
+## Join
+
+Statement join sendiri digunakan untuk menggabungkan data atau kolom dari satu tabel (self-join) atau lebih. Field yang umum adalah `Primary Key` dari tabel pertama dan `Foreign Key` untuk tabel lainnya.
+
+### Macam-macam Join.
+
+![](../day_3_postgreSQL/screenshot/macam-join.png)
+
+## Aggregation
+
+Fungsi sebuah aggregation memproduksi sebuah hasil untuk seluruh grup maupun tabel.
+Fungsi ini digunakan untuk merangkum hasil. Beroperasi dengan satu set kolom. Agregasi juga mereturn hasil berdasarkan grup kolom. By default, semua kolom dalam tabel diperlakukan sebagai satu grup. Klausa GROUP BY digunakan untuk membagi kolom untuk beberapa grup lagi.
+
+### Contoh Aggregation
+
+| Nama Fungsi | Deskripsi                                                                |
+| ----------- | ------------------------------------------------------------------------ |
+| COUNT       | This function returns the number or rows or non NULL values for a column |
+| SUM         | This function returns the sum of a selected column.                      |
+| MAX         | This function returns the largest value of a specific column.            |
+| MIN         | This function returns the smallest value of a specific column.           |
+| AVG         | This function returns the average value for a specific column.           |
+
+[Lebih Lanjut](https://www.postgresql.org/docs/9.5/functions-aggregate.html)
+
+## Subquery
+
+Merupakan nested SQL query yang ada dalam larger query
+
+### Contoh
+
+```
+update product set stock = subquery.stock -2 from (select id, stock from product where product.id=5) as subquery where product.id=5;
+```
+
+## Function
+
+Dikenal sebagai stored proscedure, mengizinkan pengguna untuk membawa semua operasi yang normalnya membutuhkan beberapa query dalam satu fungsi dalam database.
+
+### Contoh
+
+```
+create FUNCTION kurangi_stock(INT, INT) RETURNS product AS
+'update product set stock = subquery.stock - $2 from (select id, stock from product where product.id = $1) as subquery where product.id = $1; select * from product where product.id=$1' LANGUAGE 'sql';
+```
