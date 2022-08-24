@@ -27,7 +27,7 @@
 - orders
   ![](../screenshot/update-orders.png)
 
-# 3. Delete
+# 4. Delete
 
 - customers
   ![](../screenshot/delete-customers.png)
@@ -36,7 +36,7 @@
 - orders
   ![](../screenshot/delete-orders.png)
 
-# 4. Joins
+# 5. Joins
 
 - Join
   ![](../screenshot/join.png)
