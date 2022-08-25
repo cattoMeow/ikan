@@ -24,6 +24,34 @@ func swap(a string, b string) (string, string) {
 	return a, b
 }
 
+// func helloVariadic
+func helloVariadic(name ...string) string {
+	msg := "hello, "
+	for _, v := range name {
+		msg += v
+	}
+	return msg
+}
+
+// struc
+/// struc student
+type student struct {
+	name    string
+	grade   int
+	sekolah school //embeded struct
+}
+
+/// struc school
+type school struct {
+	name    string
+	address string
+	kelas   class
+}
+
+type class struct {
+	name string
+}
+
 func main() {
 
 	// var {nama variabel} {type data}
@@ -123,4 +151,36 @@ func main() {
 	///swap hanya pakai variabel a saja
 	a, _ := swap("varA", "varB")
 	fmt.Println("var a:", a)
+
+	// func helloVariadic()
+	hello1 := helloVariadic("cwtto ", "meow ", "github") //tipe data harus sama, else error
+	fmt.Println("hello1: ", hello1)
+
+	// struct
+	var s1 student
+	s1.name = "Zhang Purnama"
+	s1.grade = 2
+	// embeded struct
+	s1.sekolah.name = "Tokyo University"
+	s1.sekolah.address = "Japan"
+
+	students := []student{
+		{name: "Zhang", grade: 10, sekolah: school{name: "Tokyo University", address: "Japan", kelas: class{name: "Kelas 10"}}},
+		{name: "Purnama", grade: 8, sekolah: school{name: "Tokyo University", address: "Japan", kelas: class{name: "Kelas 12"}}},
+	}
+
+	for _, student := range students {
+		fmt.Println("-------------")
+		fmt.Println("name: ", student.name)
+		fmt.Println("grade: ", student.grade)
+		fmt.Println("sekolah: ", student.sekolah.name)
+		fmt.Println("alamat: ", student.sekolah.address)
+		fmt.Println("kelas: ", student.sekolah.kelas.name)
+		fmt.Println("-------------")
+	}
+
+	fmt.Println("NAME: ", s1.name)
+	fmt.Println("GRADE: ", s1.grade)
+	fmt.Println("SEKOLAH: ", s1.sekolah.name)
+	fmt.Println("ADDRESS: ", s1.sekolah.address)
 }
