@@ -15,4 +15,10 @@ func main() {
 	fmt.Println("student: ", student)
 	fmt.Println("student specific: ", student["zhang"])
 
+	// array
+	var buah4 = [4]string{"apple", "nanas", "melon", "alpukat"}
+	var buahUnlimited = [...]string{"apple", "nanas", "melon", "alpukat", "durian", "mangga"}
+
+	fmt.Println("buah: ", buah4)
+	fmt.Println("buah: ", buahUnlimited)
 }
