@@ -215,3 +215,68 @@ func main(){
 ## GoRoutine
 
 Merupakan salah satu bagian concurrent terpenting dalam Golang. Satu hal yang membuatnya spesial adalah mampu mengeksekusi dengan prosesor multi-core. Sehingga dapat mementukan berapa core yang aktif, semakin banyak semakin kencang. Go routine juga sangat ringan, hanya berukuran 2KB.
+GO Routine dapat diimplementasikan bersamaan dengan WaitGroup.
+
+### Implementasi GoRoutine
+
+```
+package main
+import(
+    "fmt"
+    "time"
+)
+
+func numbers(){
+    for i := 1; i <= 5; i++ {
+        time.Sleep(250 * time.Milisecond)
+        fmt.Printf("%d ", i)
+    }
+}
+
+func alphabets(){
+    for i := 'a'; i <= 'e'; i++{
+        time.Sleep(400 * time.Milisecond)
+        fmt.Printf("%c ", i)
+    }
+}
+
+func main(){
+    go numbers()
+    go alphabets()
+    time.Sleep(3000 * time.Milisecond)
+    fmt.Println("Main terminated")
+}
+```
+
+### Implementasi dengan WaitGroup
+
+```
+package main
+
+import(
+    "fmt"
+    "sync"
+)
+
+func main(){
+
+    wg := sync.WaitGroup{}
+
+    wg.Add(2)
+
+    go func(){
+        defer wg.Done()
+        fmt.Println("hallo")
+    }()
+    go func(){
+        defer wg.Done()
+        fmt.Println("World")
+    }()
+    go func(){
+        defer wg.Done()
+        fmt.Println("Hideo Kojima")
+    }()
+
+    wg.Wait()
+}
+```
