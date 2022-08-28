@@ -144,3 +144,74 @@ func main(){
     library.sayhello("Zhang purnama") //kode ini akan error karena memanggil private prop method
 }
 ```
+
+## Interface
+
+Merupakan _custom type_ yang digunakan untuk satu set method spesifik dan interface merupakan abstraknya, sehingga kita tidak diizinkan untuk membuat instance dari sebuah interface.
+
+### Define interface
+
+```
+package main
+import "fmt"
+import "math"
+
+type hitung interface {
+    luas() float64
+    keliling() float64
+}
+```
+
+### membuat method
+
+```
+type lingkaran struct {
+    diameter float64
+}
+type (l lingkaran) jariJari() float64 {
+    return l.diamater / 2
+}
+
+func (l lingkaran) luas() float64{
+    return math.Pi * math.Pow(l.jariJari(), 2)
+}
+
+func (l lingkaran) keliling() float64{
+    return math.Pi * l.diameter
+}
+
+type persegi struct{
+    sisi flot64
+}
+
+func (p persegi) luas() float64{
+    return math.Pow(p.sisi, 2)
+}
+
+func (p persegi) keliling() float64{
+    return p.sisi * 4
+}
+```
+
+memanggil fungsi menuju main
+
+```
+func main(){
+    var bangunDatar hitung
+
+    bangunDatar = persegi{10.0}
+    fmt.Println("==== persegi")
+    fmt.Println("luas   :", bangunDatar.luas())
+    fmt.Println("keliling   :", bangunDatar.keliling())
+
+    bangunDatar = lingkaran{14.0}
+    fmt.Println("==== lingkaran")
+    fmt.Println("luas   :", bangunDatar.luas())
+    fmt.Println("keliling   :", bangunDatar.keliling())
+    fmt.Println("jaro-jari   :", bangunDatar.(lingkaran).jariJari())
+}
+```
+
+## GoRoutine
+
+Merupakan salah satu bagian concurrent terpenting dalam Golang. Satu hal yang membuatnya spesial adalah mampu mengeksekusi dengan prosesor multi-core. Sehingga dapat mementukan berapa core yang aktif, semakin banyak semakin kencang. Go routine juga sangat ringan, hanya berukuran 2KB.
