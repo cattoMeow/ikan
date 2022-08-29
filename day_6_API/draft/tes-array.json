@@ -1,0 +1,31 @@
+[
+    {
+        "name": "Hideo Kojima",
+        "email": "zhangpurnama@kojipro.jp",
+        "age": 69,
+        "is_married": true,
+        "spouse_name": null
+    },
+    {
+        "name": "Hideo Kojima",
+        "email": "zhangpurnama@kojipro.jp",
+        "age": 69,
+        "is_married": true,
+        "spouse": {
+            "name": "bu kojima",
+            "age": 50
+        }
+    },
+    {
+        "childs": [
+            {
+                "name": "Kojima Junior",
+                "age": 30
+            },
+            {
+                "name": "Kojima Junior MK.2",
+                "age": 30
+            }
+        ]
+    }
+]
