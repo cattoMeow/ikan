@@ -8,4 +8,5 @@ This files intended for trial and error on aqua developer academy.
 - Day 3 **Done**
 - Day 4 **Done**
 - Day 5 **Done**
-- Week 1
+- Week 1 **Done**
+- Day 6

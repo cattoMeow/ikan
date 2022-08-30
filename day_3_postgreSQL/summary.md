@@ -71,7 +71,7 @@ Fungsi ini digunakan untuk merangkum hasil. Beroperasi dengan satu set kolom. Ag
 
 ### Contoh Aggregation
 
-| Nama Fungsi | Deskripsi                                                                |
+| Nama Fungsi | Deskripsi |
 | ----------- | ------------------------------------------------------------------------ |
 | COUNT       | This function returns the number or rows or non NULL values for a column |
 | SUM         | This function returns the sum of a selected column.                      |
