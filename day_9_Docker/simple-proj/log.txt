@@ -1,0 +1,33 @@
+2022/08/29 12:17:55 Masuk ke create user
+2022/08/29 12:17:55 req data masuk &{0  }
+2022/08/29 12:18:21 Masuk ke create user
+2022/08/29 12:18:21 req data masuk &{0  }
+2022/08/29 12:24:15 Masuk ke create user
+2022/08/29 12:24:15 req data masuk &{0  }
+2022/08/29 12:27:04 Masuk ke create user
+2022/08/29 12:27:04 req data masuk &{0  }
+2022/08/29 12:29:55 Masuk ke create user
+2022/08/29 12:29:55 req data masuk &{0 Zhang Purnama nnn hideo@kojiprooo.jp}
+2022/08/29 12:30:44 Masuk ke create user
+2022/08/29 12:30:44 req data masuk &{0 Zhang Purnama nnn hideo@kojiprooo.jp}
+2022/08/29 12:30:47 Masuk ke create user
+2022/08/29 12:30:47 req data masuk &{0 Zhang Purnama nnn hideo@kojiprooo.jp}
+2022/08/30 10:41:05 Masuk ke create user
+2022/08/30 10:41:05 req data masuk &{0 Zhang Purnama nnn hideo@kojiprooo.jp}
+2022/08/30 10:41:07 Masuk ke create user
+2022/08/30 10:41:07 req data masuk &{0 Zhang Purnama nnn hideo@kojiprooo.jp}
+2022/08/30 10:41:08 Masuk ke create user
+2022/08/30 10:41:08 req data masuk &{0 Zhang Purnama nnn hideo@kojiprooo.jp}
+2022/08/30 21:29:56 Masuk ke create user
+2022/08/30 21:30:15 Masuk ke create user
+2022/08/30 21:32:08 Masuk ke create user
+2022/08/30 21:32:08 User berhasil dibuat &{1 Parto parto@pelawak.com}
+2022/08/30 21:53:31 Masuk ke create user
+2022/08/30 21:53:31 User berhasil dibuat Nama:  Parto Email:  parto@pelawak.com
+2022/08/30 21:55:13 Masuk ke create user
+2022/08/30 21:55:13 User berhasil dibuat. ID: 1 Nama: Parto Email:  parto@pelawak.com
+2022/08/30 22:04:19 Masuk ke create user
+2022/08/30 22:04:19 User berhasil dibuat. ID: 1 Nama: Parto Email: parto@pelawak.com
+2022/08/30 22:04:23 Masuk ke cek semua user
+2022/08/30 22:04:33 Masuk ke delete user
+2022/08/30 22:04:33 User berhasil didelete
